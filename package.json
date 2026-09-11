@@ -1,0 +1,26 @@
+{
+  "name": "annsetu",
+  "version": "1.0.0",
+  "description": "AnnSetu AI-Powered Smart Food Rescue Platform",
+  "scripts": {
+    "all": "npm run start:all",
+    "start": "npm run dev",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" \"npm run dev:mobile\"",
+    "start:all": "concurrently \"npm run dev:backend\" \"npm run dev:ai\" \"npm run dev:frontend\" \"npm run dev:mobile\"",
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "npm --prefix frontend run dev",
+    "dev:mobile": "npm --prefix mobile start",
+    "dev:ai": "cd ai_module && python -m uvicorn app:app --port 8000 --reload",
+    "backend": "npm run dev:backend",
+    "frontend": "npm run dev:frontend",
+    "web": "npm run dev:frontend",
+    "mobile": "npm run dev:mobile",
+    "mobile:tunnel": "npm --prefix mobile run tunnel",
+    "ai": "npm run dev:ai",
+    "start:backend": "npm --prefix backend start",
+    "start:frontend": "npm --prefix frontend run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.5"
+  }
+}
